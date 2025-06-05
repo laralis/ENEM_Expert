@@ -1,0 +1,77 @@
+{
+  "conversas": [
+    {
+      "mensagens": [
+        "como estudar para o enem?",
+        "melhor forma de estudar para o enem",
+        "por onde eu posso estudar para a prova do enem?",
+        "dicas de preparação para o enem"
+      ],
+      "resposta": "Estude com base nas provas anteriores, mantenha uma rotina de revisão e prática com simulados. Foque nas áreas que você tem mais dificuldade e não deixe de treinar redação."
+    },
+    {
+      "mensagens": [
+        "quais são as matérias que caem no enem?",
+        "conteúdo do enem",
+        "o que estudar para o enem"
+      ],
+      "resposta": "O ENEM cobra conteúdos de Linguagens, Matemática, Ciências Humanas, Ciências da Natureza e Redação. Verifique a matriz de referência no site do INEP para detalhes: https://www.gov.br/inep/pt-br/acesso-a-informacao/perguntas-frequentes/exame-nacional-do-ensino-medio-enem"
+    },
+    {
+      "mensagens": [
+        "como funciona a prova do enem?",
+        "qual a estrutura do enem?",
+        "como é dividido o enem?"
+      ],
+      "resposta": "A prova do ENEM é aplicada em dois dias: no primeiro, são Linguagens, Ciências Humanas e Redação; no segundo, Matemática e Ciências da Natureza. Cada dia tem 90 questões objetivas."
+    },
+    {
+      "mensagens": [
+        "como melhorar a redação do enem?",
+        "dicas para tirar nota alta na redação",
+        "como fazer uma boa redação"
+      ],
+      "resposta": "Para melhorar sua redação, pratique com temas anteriores, siga a estrutura dissertativo-argumentativa, desenvolva uma tese clara e conclua com uma proposta de intervenção viável."
+    },
+    {
+      "mensagens": [
+        "tem questões antigas do enem?",
+        "como acessar provas anteriores?",
+        "quero praticar com questões antigas"
+      ],
+      "resposta": "Você pode acessar provas anteriores no site do INEP ou em plataformas educacionais gratuitas. É uma ótima forma de treinar com o estilo real da prova."
+    },
+    {
+      "mensagens": [
+        "como estudar matemática para o enem?",
+        "matemática cai muito no enem?",
+        "dicas de matemática para o enem"
+      ],
+      "resposta": "Pratique bastante resolução de problemas envolvendo porcentagem, razão, proporção, geometria e interpretação de gráficos. Esses são temas muito recorrentes no ENEM."
+    },
+    {
+      "mensagens": [
+        "como é a correção da redação do enem?",
+        "quais critérios de avaliação da redação?",
+        "como a redação é avaliada?"
+      ],
+      "resposta": "A redação é avaliada com base em cinco competências, como domínio da norma culta, coesão, argumentação e proposta de intervenção. Cada competência vale até 200 pontos."
+    },
+    {
+      "mensagens": [
+        "como usar a nota do enem?",
+        "para que serve a nota do enem?",
+        "onde posso usar minha nota do enem?"
+      ],
+      "resposta": "A nota do ENEM pode ser usada para entrar em universidades públicas via Sisu, obter bolsas pelo Prouni ou financiamento pelo Fies. Também é aceita em algumas instituições internacionais."
+    },
+    {
+      "mensagens": [
+        "como funciona a TRI no enem?",
+        "o que é TRI?",
+        "como o enem calcula a nota?"
+      ],
+      "resposta": "A nota do ENEM é calculada com a Teoria de Resposta ao Item (TRI), que leva em conta o padrão de acertos e a coerência nas respostas. Não basta acertar muito, é preciso consistência."
+    }
+  ]
+}

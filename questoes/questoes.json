@@ -1,0 +1,304 @@
+{
+  "questoes": [
+    {
+      "materia": "Matemática",
+      "ano": 2023,
+      "numero": 1,
+      "pergunta": "Um laboratório realizou um estudo sobre o crescimento de uma cultura bacteriana. Inicialmente havia 1.500 bactérias na amostra, e verificou-se que a população dobrava a cada 30 minutos. A expressão que representa a quantidade de bactérias após t horas é dada por P(t) = 1.500 × 2^(2t). Quanto tempo, em horas, será necessário para que a população bacteriana atinja 192.000 unidades?",
+      "alternativas": {
+        "A": "2,5",
+        "B": "3,0",
+        "C": "3,5",
+        "D": "4,0",
+        "E": "4,5"
+      },
+      "resposta_correta": "C",
+      "explicacao": "Temos que P(t) = 1.500 × 2^(2t), e queremos encontrar t tal que P(t) = 192.000. Substituindo: 192.000 = 1.500 × 2^(2t). Resolvendo para t: 192.000/1.500 = 2^(2t) → 128 = 2^(2t) → 2^7 = 2^(2t) → 7 = 2t → t = 3,5. Logo, serão necessárias 3,5 horas para que a população atinja 192.000 bactérias."
+    },
+    {
+      "materia": "Matemática",
+      "ano": 2023,
+      "numero": 2,
+      "pergunta": "Em um condomínio, será construída uma piscina retangular com 8 metros de comprimento por 5 metros de largura. Ao redor da piscina será colocado um piso de cerâmica formando uma borda de largura uniforme de x metros, conforme a figura. Se a área total, incluindo a piscina e a borda, é de 88 m², qual é o valor de x em metros?",
+      "alternativas": {
+        "A": "1,0",
+        "B": "1,5",
+        "C": "2,0",
+        "D": "2,5",
+        "E": "3,0"
+      },
+      "resposta_correta": "B",
+      "explicacao": "A área da piscina é 8 × 5 = 40 m². A área total (piscina + borda) é 88 m², então a área da borda é 88 - 40 = 48 m². Se a piscina tem dimensões 8 × 5 m e a borda tem largura uniforme x, então a área total terá dimensões (8 + 2x) × (5 + 2x). Portanto: (8 + 2x) × (5 + 2x) = 88 → (8 + 2x)(5 + 2x) = 88 → 40 + 16x + 10x + 4x² = 88 → 4x² + 26x + 40 - 88 = 0 → 4x² + 26x - 48 = 0 → x² + 6,5x - 12 = 0. Aplicando a fórmula de Bhaskara: x = (-6,5 ± √(6,5² + 48))/2 = (-6,5 ± √(42,25 + 48))/2 = (-6,5 ± √90,25)/2 = (-6,5 ± 9,5)/2. Como x não pode ser negativo: x = (9,5 - 6,5)/2 = 3/2 = 1,5. Portanto, x = 1,5 metros."
+    },
+    {
+      "materia": "Matemática",
+      "ano": 2023,
+      "numero": 3,
+      "pergunta": "Uma empresa fabrica dois modelos de celulares: modelo A e modelo B. O custo de produção do modelo A é de R$ 600,00 e o custo de produção do modelo B é de R$ 900,00. Na linha de produção, o tempo de montagem do modelo A é de 2 horas e o do modelo B é de 3 horas. A empresa dispõe de um orçamento de R$ 330.000,00 para produção e de 900 horas de trabalho disponíveis. Deseja-se determinar quantas unidades de cada modelo devem ser fabricadas para maximizar o lucro total, sabendo que o lucro unitário do modelo A é de R$ 400,00 e o do modelo B é de R$ 600,00. Quantas unidades do modelo B devem ser produzidas?",
+      "alternativas": {
+        "A": "100",
+        "B": "150",
+        "C": "200",
+        "D": "250",
+        "E": "300"
+      },
+      "resposta_correta": "C",
+      "explicacao": "Sejam x a quantidade de celulares do modelo A e y a quantidade de celulares do modelo B. Temos as restrições: 600x + 900y ≤ 330.000 (orçamento) e 2x + 3y ≤ 900 (horas disponíveis). Simplificando a primeira inequação: 2x + 3y ≤ 1.100. A função lucro a ser maximizada é L(x,y) = 400x + 600y. Como a função lucro tem coeficientes positivos, a solução ótima estará na fronteira das restrições. Resolvendo o sistema: 2x + 3y = 900 e 2x + 3y = 1.100. Como estas retas são paralelas e 1.100 > 900, a restrição de horas é mais limitante. Os pontos extremos são (0,300), (450,0) e o ponto de interseção das retas 2x + 3y = 900 e 600x + 900y = 330.000, que é (150,200). Calculando o lucro em cada ponto: L(0,300) = 400×0 + 600×300 = 180.000, L(450,0) = 400×450 + 600×0 = 180.000, L(150,200) = 400×150 + 600×200 = 60.000 + 120.000 = 180.000. Como o lucro é o mesmo nos três pontos extremos, qualquer combinação desses pontos também é ótima. Portanto, a empresa deve produzir 200 unidades do modelo B."
+    },
+    {
+      "materia": "Matemática",
+      "ano": 2023,
+      "numero": 4,
+      "pergunta": "Uma loja de material de construção vende argamassa em embalagens de três tamanhos diferentes: pequena (5 kg), média (15 kg) e grande (25 kg), com preços de R$ 20,00, R$ 55,00 e R$ 80,00, respectivamente. Um cliente precisa comprar exatamente 95 kg de argamassa e quer gastar o menor valor possível. Qual deve ser a quantidade de cada embalagem que ele deve comprar?",
+      "alternativas": {
+        "A": "1 embalagem pequena, 2 médias e 3 grandes",
+        "B": "3 embalagens pequenas, 2 médias e 3 grandes",
+        "C": "1 embalagem pequena, 6 médias e 0 grandes",
+        "D": "3 embalagens pequenas, 0 médias e 4 grandes",
+        "E": "0 embalagens pequenas, 1 média e 4 grandes"
+      },
+      "resposta_correta": "C",
+      "explicacao": "Sejam p, m e g as quantidades de embalagens pequenas, médias e grandes a serem compradas, respectivamente. Temos a restrição: 5p + 15m + 25g = 95 (total de 95 kg de argamassa). A função custo a ser minimizada é C(p,m,g) = 20p + 55m + 80g. Calculando o custo por kg de cada embalagem: Pequena: 20/5 = 4 R$/kg; Média: 55/15 = 3,67 R$/kg; Grande: 80/25 = 3,2 R$/kg. Como a embalagem grande tem o menor custo por kg, devemos maximizar sua compra. Com 4 embalagens grandes, temos: 25 × 4 = 100 kg, o que excede os 95 kg necessários. Com 3 embalagens grandes, temos: 25 × 3 = 75 kg, e faltam 20 kg. Poderíamos comprar 1 média (15 kg) e 1 pequena (5 kg) = 20 kg, totalizando 95 kg. Assim, teríamos: 1 pequena, 1 média e 3 grandes, com custo de 20 + 55 + 3×80 = 20 + 55 + 240 = 315 reais. Mas se comprarmos 2 médias, temos 15 × 2 = 30 kg, e precisaríamos reduzir 10 kg nas grandes, substituindo por pequenas. Isso significa 2 pequenas a mais e 0,4 grandes a menos. Como não podemos comprar fração de embalagens, essa solução não funciona diretamente. Vamos tentar outro enfoque, testando combinações válidas: Combinação E: 0 pequenas, 1 média e 4 grandes = 0×5 + 1×15 + 4×25 = 115 kg (excede); Combinação D: 3 pequenas, 0 médias e 4 grandes = 3×5 + 0×15 + 4×25 = 115 kg (excede); Combinação A: 1 pequena, 2 médias, 3 grandes = 1×5 + 2×15 + 3×25 = 5 + 30 + 75 = 110 kg (excede); Combinação B: 3 pequenas, 2 médias, 3 grandes = 3×5 + 2×15 + 3×25 = 15 + 30 + 75 = 120 kg (excede); Combinação C: 1 pequena, 6 médias, 0 grandes = 1×5 + 6×15 + 0×25 = 5 + 90 = 95 kg. Esta combinação atende à restrição com custo de 20 + 6×55 = 20 + 330 = 350 reais. A alternativa correta seria a C: 1 embalagem pequena, 6 médias e 0 grandes."
+    },
+    {
+      "materia": "Matemática",
+      "ano": 2023,
+      "numero": 5,
+      "pergunta": "Uma pesquisa sobre o consumo de café foi realizada com 500 pessoas. Os resultados mostraram que 280 pessoas consomem café no café da manhã, 200 pessoas consomem café após o almoço, e 160 pessoas consomem café tanto no café da manhã quanto após o almoço. Quantas pessoas da pesquisa não consomem café em nenhum desses horários?",
+      "alternativas": {
+        "A": "100",
+        "B": "120",
+        "C": "140",
+        "D": "160",
+        "E": "180"
+      },
+      "resposta_correta": "E",
+      "explicacao": "Sejam: n(A) = número de pessoas que consomem café no café da manhã = 280; n(B) = número de pessoas que consomem café após o almoço = 200; n(A ∩ B) = número de pessoas que consomem café em ambos os horários = 160; n(U) = número total de pessoas = 500. O número de pessoas que não consomem café em nenhum dos horários é dado por n(U) - [n(A) + n(B) - n(A ∩ B)] = 500 - [280 + 200 - 160] = 500 - 320 = 180 pessoas."
+    },
+    {
+      "materia": "Ciências da Natureza",
+      "ano": 2023,
+      "numero": 1,
+      "pergunta": "Os plásticos convencionais são polímeros sintetizados a partir de derivados de petróleo e demoram centenas de anos para se decompor no meio ambiente. Uma alternativa são os bioplásticos, produzidos a partir de fontes renováveis como o amido e a celulose. Um tipo importante de bioplástico é o PLA (ácido poliláctico), cuja unidade monomérica é mostrada a seguir:\n\nH3C–CH(OH)–COOH\n\nQual processo químico ocorre durante a formação do PLA?",
+      "alternativas": {
+        "A": "Hidrólise",
+        "B": "Esterificação",
+        "C": "Condensação",
+        "D": "Redução",
+        "E": "Isomerização"
+      },
+      "resposta_correta": "C",
+      "explicacao": "O PLA (ácido poliláctico) é formado através de uma reação de policondensação, onde moléculas de ácido láctico (H3C–CH(OH)–COOH) se ligam liberando água. Durante esse processo, o grupo hidroxila (-OH) de uma molécula de ácido láctico reage com o grupo carboxílico (-COOH) de outra molécula, formando uma ligação éster e liberando uma molécula de água. Esse tipo de reação é classificado como condensação porque envolve a eliminação de uma molécula pequena (água) durante a formação da ligação entre os monômeros."
+    },
+    {
+      "materia": "Ciências da Natureza",
+      "ano": 2023,
+      "numero": 2,
+      "pergunta": "Uma substância radioativa possui meia-vida de 5 anos. Em quanto tempo uma amostra dessa substância terá sua massa reduzida a 25% da massa original?",
+      "alternativas": {
+        "A": "5 anos",
+        "B": "10 anos",
+        "C": "15 anos",
+        "D": "20 anos",
+        "E": "25 anos"
+      },
+      "resposta_correta": "B",
+      "explicacao": "A meia-vida de uma substância radioativa é o tempo necessário para que metade da amostra se desintegre. Se a meia-vida é de 5 anos, após 5 anos restará 50% da massa original. Após mais 5 anos (total de 10 anos), restará 50% de 50%, ou seja, 25% da massa original. Portanto, em 10 anos a massa terá sido reduzida a 25% da massa original. Matematicamente: m(t) = m₀ × (1/2)^(t/T), onde m₀ é a massa inicial, t é o tempo decorrido e T é a meia-vida. Para m(t)/m₀ = 0,25: 0,25 = (1/2)^(t/5) → (1/2)² = (1/2)^(t/5) → 2 = t/5 → t = 10 anos."
+    },
+    {
+      "materia": "Ciências da Natureza",
+      "ano": 2023,
+      "numero": 3,
+      "pergunta": "O daltonismo é uma condição genética que afeta a percepção das cores. Considere que um homem daltônico tem uma filha com uma mulher de visão normal cujo pai era daltônico. Qual é a probabilidade de essa filha ser portadora do gene para daltonismo?",
+      "alternativas": {
+        "A": "0%",
+        "B": "25%",
+        "C": "50%",
+        "D": "75%",
+        "E": "100%"
+      },
+      "resposta_correta": "E",
+      "explicacao": "O daltonismo é uma condição genética recessiva ligada ao cromossomo X. Homens possuem apenas um cromossomo X, herdado da mãe, enquanto mulheres possuem dois cromossomos X, um de cada progenitor. No caso apresentado: 1) O homem daltônico possui o alelo recessivo para daltonismo em seu único cromossomo X (Xd); 2) A mulher tem visão normal, mas seu pai era daltônico, o que significa que ela herdou um cromossomo X com o alelo para daltonismo do pai (Xd) e um cromossomo X normal da mãe (XN). Portanto, a mulher é portadora do gene para daltonismo (XNXd); 3) Quando esse casal tem uma filha, ela recebe o cromossomo X com o alelo para daltonismo (Xd) do pai e um dos cromossomos X da mãe, que pode ser XN ou Xd. Como a filha precisa ser uma menina, ela necessariamente herdou o cromossomo X com o alelo para daltonismo do pai, tornando-a portadora ou daltônica, independentemente do cromossomo herdado da mãe. Logo, a probabilidade da filha ser portadora do gene para daltonismo é de 100%."
+    },
+    {
+      "materia": "Ciências da Natureza",
+      "ano": 2023,
+      "numero": 4,
+      "pergunta": "Uma usina hidrelétrica possui potência instalada de 14.000 MW e sua represa tem área de superfície de 2.400 km². A construção da usina inundou grandes áreas de floresta, que não foram desmatadas previamente. Qual impacto ambiental direto está associado a essa situação?",
+      "alternativas": {
+        "A": "Aumento da acidificação das águas oceânicas",
+        "B": "Elevação do nível do mar em regiões costeiras",
+        "C": "Emissão de gases de efeito estufa pela decomposição da matéria orgânica submersa",
+        "D": "Introdução de espécies exóticas nos ecossistemas aquáticos",
+        "E": "Diminuição da evapotranspiração regional"
+      },
+      "resposta_correta": "C",
+      "explicacao": "Quando áreas florestais são inundadas sem desmatamento prévio para a construção de represas de usinas hidrelétricas, a vegetação submersa passa por um processo de decomposição anaeróbica (na ausência de oxigênio). Esse processo libera grandes quantidades de gases de efeito estufa, principalmente metano (CH₄) e dióxido de carbono (CO₂). O metano tem potencial de aquecimento global cerca de 25 vezes maior que o CO₂, contribuindo significativamente para as mudanças climáticas. Esse impacto é particularmente relevante nos primeiros anos após o enchimento do reservatório, quando a taxa de decomposição da matéria orgânica é mais intensa."
+    },
+    {
+      "materia": "Ciências da Natureza",
+      "ano": 2023,
+      "numero": 5,
+      "pergunta": "Em um experimento de laboratório, um estudante construiu um circuito elétrico com uma fonte de tensão de 12 V, um resistor de resistência 4 Ω e um amperímetro ideal (resistência nula). Se o amperímetro registrou uma corrente de 2 A, qual é a resistência interna da fonte?",
+      "alternativas": {
+        "A": "1 Ω",
+        "B": "2 Ω",
+        "C": "3 Ω",
+        "D": "4 Ω",
+        "E": "6 Ω"
+      },
+      "resposta_correta": "B",
+      "explicacao": "Em um circuito elétrico com uma fonte de tensão real (que possui resistência interna), a relação entre a tensão fornecida (ε), a corrente (i), a resistência externa (R) e a resistência interna (r) é dada pela equação: ε = i(R + r). Neste caso, temos ε = 12 V, i = 2 A, e R = 4 Ω. Substituindo esses valores na equação: 12 = 2(4 + r) → 12 = 8 + 2r → 4 = 2r → r = 2 Ω. Portanto, a resistência interna da fonte é de 2 Ω."
+    },
+    {
+      "materia": "Linguagens",
+      "ano": 2023,
+      "numero": 1,
+      "pergunta": "The number of international students in the United States hit a record high in the 2018-19 academic year, according to a report by the Institute of International Education. For the fourth consecutive year, there were more than one million international students in the United States. The report found that the number of students from China and Brazil declined slightly, while the number from Nigeria and Bangladesh showed large increases.",
+      "alternativas": {
+        "A": "destacar a preferência dos estudantes nigerianos por universidades americanas",
+        "B": "comparar a qualidade do ensino superior em diferentes países",
+        "C": "apresentar dados sobre a presença de estudantes estrangeiros nos EUA",
+        "D": "criticar a redução no número de estudantes chineses nas universidades americanas",
+        "E": "analisar os motivos da queda de matrículas de estudantes brasileiros"
+      },
+      "resposta_correta": "C",
+      "explicacao": "O texto apresenta dados estatísticos sobre estudantes internacionais nos Estados Unidos, mencionando recordes de matrículas no ano acadêmico de 2018-19, o quarto ano consecutivo com mais de um milhão de estudantes estrangeiros, e tendências de aumento ou diminuição por nacionalidade. O objetivo principal é informativo, apresentando dados sobre a presença de estudantes estrangeiros nos EUA, sem focar especificamente em um país ou analisar os motivos das tendências observadas."
+    },
+    {
+      "materia": "Linguagens",
+      "ano": 2023,
+      "numero": 2,
+      "pergunta": "TEXTO\n\nNo meio do caminho tinha uma pedra\ntinha uma pedra no meio do caminho\ntinha uma pedra\nno meio do caminho tinha uma pedra\n\nNunca me esquecerei desse acontecimento\nna vida de minhas retinas tão fatigadas\nNunca me esquecerei que no meio do caminho\ntinha uma pedra\ntinha uma pedra no meio do caminho\nno meio do caminho tinha uma pedra.\n\nCARLOS DRUMMOND DE ANDRADE\n\nA repetição da expressão 'no meio do caminho tinha uma pedra' nesse poema de Carlos Drummond de Andrade tem como efeito de sentido:",
+      "alternativas": {
+        "A": "denunciar as más condições das estradas brasileiras",
+        "B": "enfatizar a presença constante de obstáculos na trajetória humana",
+        "C": "valorizar a simplicidade dos elementos naturais da paisagem",
+        "D": "criticar a falta de originalidade da poesia modernista",
+        "E": "demonstrar a limitação vocabular do autor"
+      },
+      "resposta_correta": "B",
+      "explicacao": "No poema 'No meio do caminho' de Carlos Drummond de Andrade, a repetição sistemática da expressão 'no meio do caminho tinha uma pedra' funciona como um recurso estilístico que enfatiza a ideia de obstáculo, impedimento ou dificuldade recorrente na trajetória humana. A pedra simboliza os entraves que encontramos em nossa vida, e a repetição reforça o impacto e a permanência desses obstáculos na memória ('Nunca me esquecerei desse acontecimento'). Não se trata de uma crítica às estradas brasileiras ou à poesia modernista, nem de limitação vocabular, mas sim de uma escolha estética consciente para transmitir uma reflexão existencial sobre os obstáculos da vida."
+    },
+    {
+      "materia": "Linguagens",
+      "ano": 2023,
+      "numero": 3,
+      "pergunta": "A proliferação de aplicativos de mensagens instantâneas provocou uma transformação significativa nas práticas comunicativas contemporâneas. No contexto dessa transformação, o uso de emojis, figurinhas e memes representa:",
+      "alternativas": {
+        "A": "um empobrecimento da língua escrita formal",
+        "B": "uma forma de expressão visual que substitui completamente o texto",
+        "C": "um recurso que busca compensar a ausência de elementos paralinguísticos da comunicação face a face",
+        "D": "uma tendência exclusiva do público adolescente nas redes sociais",
+        "E": "uma estratégia das empresas de tecnologia para aumentar o uso de dados móveis"
+      },
+      "resposta_correta": "C",
+      "explicacao": "Na comunicação face a face, elementos paralinguísticos como expressões faciais, tom de voz, gestos e postura corporal complementam a mensagem verbal e ajudam a transmitir emoções e intenções. Em ambientes digitais de mensagens escritas, esses elementos estão ausentes, o que pode ocasionar mal-entendidos. Os emojis, figurinhas e memes surgiram como recursos para compensar essa ausência, permitindo a transmissão de emoções, estados de espírito e nuances que o texto escrito isoladamente não consegue expressar. Não se trata de um empobrecimento da língua ou substituição completa do texto, mas de um complemento visual que enriquece a comunicação digital, utilizado por pessoas de diferentes faixas etárias e não apenas adolescentes."
+    },
+    {
+      "materia": "Linguagens",
+      "ano": 2023,
+      "numero": 4,
+      "pergunta": "TEXTO\n\nEu queria querer-te e amar o amor\nConstruir-te uma margem do outro lado\nDeste lado do tempo que nos foge\nDeste lado da vida à solta\nMas só existe o tempo do crescimento\nEm que o dentro e o fora são um verso inteiro\n\nSOPHIA DE MELLO BREYNER ANDRESEN\n\nNo poema da escritora portuguesa Sophia de Mello Breyner Andresen, o eu lírico expressa um sentimento de:",
+      "alternativas": {
+        "A": "indiferença frente à passagem do tempo",
+        "B": "frustração pela fugacidade do tempo e dos sentimentos",
+        "C": "satisfação com a plenitude do amor vivido",
+        "D": "alegria pela possibilidade de construção de uma relação duradoura",
+        "E": "conformismo diante da impossibilidade de controlar o destino"
+      },
+      "resposta_correta": "B",
+      "explicacao": "No poema, o eu lírico expressa o desejo de amar ('Eu queria querer-te e amar o amor') e construir uma relação duradoura ('Construir-te uma margem do outro lado'), mas reconhece a impossibilidade dessa realização devido à fugacidade do tempo ('Deste lado do tempo que nos foge'). A conjunção adversativa 'Mas' introduz o obstáculo a esse desejo: 'só existe o tempo do crescimento'. O poema transmite, portanto, um sentimento de frustração pela incapacidade de concretizar o desejo amoroso diante da inexorável passagem do tempo, tema recorrente na poesia lírica desde seus primórdios."
+    },
+    {
+      "materia": "Linguagens",
+      "ano": 2023,
+      "numero": 5,
+      "pergunta": "As variantes linguísticas são os diferentes modos de falar uma língua, que variam de acordo com fatores históricos, geográficos, sociais e situacionais. Sobre esse tema, é correto afirmar que:",
+      "alternativas": {
+        "A": "a norma-padrão é a única variante linguística que segue regras gramaticais",
+        "B": "as variantes regionais são consideradas incorreções que devem ser evitadas em qualquer situação comunicativa",
+        "C": "o uso de gírias e expressões coloquiais deve ser completamente evitado para garantir uma comunicação eficaz",
+        "D": "a adequação linguística consiste em adaptar o registro de linguagem ao contexto comunicativo",
+        "E": "a variação linguística é um fenômeno que ocorre apenas em países multilíngues"
+      },
+      "resposta_correta": "D",
+      "explicacao": "A adequação linguística é um conceito sociolinguístico que se refere à capacidade do falante de adaptar seu registro de linguagem (formal ou informal) de acordo com o contexto comunicativo, o interlocutor e a situação de comunicação. Todas as variantes linguísticas, incluindo as regionais e sociais, seguem regras gramaticais próprias e são legítimas do ponto de vista linguístico. A variação linguística é um fenômeno universal que ocorre em todas as línguas, independentemente de o país ser multilíngue ou não. O uso de gírias e expressões coloquiais é apropriado em determinados contextos comunicativos, não prejudicando necessariamente a comunicação eficaz quando adequadamente empregados."
+    },
+    {
+      "materia": "Ciências Humanas",
+      "ano": 2023,
+      "numero": 1,
+      "pergunta": "O feudalismo europeu pode ser caracterizado como um sistema de organização econômica, social e política baseado nos vínculos de homem a homem, no qual uma classe de guerreiros especializados — os senhores — subordinava os camponeses que trabalhavam a terra, apropriando-se de sua produção excedente em troca de proteção e determinadas garantias. Sobre as relações de poder nesse sistema, é correto afirmar que:",
+      "alternativas": {
+        "A": "a centralização administrativa era a base da autoridade real sobre os senhores feudais",
+        "B": "a Igreja Católica exercia pouca influência política, atuando apenas na esfera espiritual",
+        "C": "os contratos de vassalagem estabeleciam relações de fidelidade e obrigações recíprocas",
+        "D": "a mobilidade social era comum, permitindo aos servos ascender ao status de senhores feudais",
+        "E": "o poder era democraticamente distribuído entre os diversos estamentos da sociedade medieval"
+      },
+      "resposta_correta": "C",
+      "explicacao": "No feudalismo, os contratos de vassalagem eram a base das relações políticas entre os nobres. Esses contratos estabeleciam um conjunto de obrigações recíprocas: o vassalo jurava fidelidade, conselho e auxílio militar ao suserano, enquanto este oferecia proteção e, geralmente, um feudo (terra) ao vassalo. Essas relações de suserania e vassalagem formavam uma complexa rede de poder descentralizado, característica do período medieval. O feudalismo não apresentava centralização administrativa (essa foi uma característica posterior do absolutismo), a Igreja exercia enorme influência política, a mobilidade social era extremamente limitada e o poder não era distribuído democraticamente, mas sim hierarquicamente."
+    },
+    {
+      "materia": "Ciências Humanas",
+      "ano": 2023,
+      "numero": 2,
+      "pergunta": "TEXTO\n\n'Paralelamente ao desenvolvimento da industrialização e da urbanização, consolida-se a divisão do espaço em áreas funcionais diferenciadas: zonas de escritórios, zonas industriais, zonas residenciais, etc. A circulação adquire uma importância crescente, pois é necessário ligar as zonas especializadas.'\n\nCORRÊA, R. L. O espaço urbano. São Paulo: Ática, 2004.\n\nO texto descreve um processo característico das cidades contemporâneas conhecido como:",
+      "alternativas": {
+        "A": "segregação espacial",
+        "B": "conurbação urbana",
+        "C": "gentrificação",
+        "D": "metropolização",
+        "E": "zoneamento funcional"
+      },
+      "resposta_correta": "E",
+      "explicacao": "O texto descreve o processo de zoneamento funcional ou segregação funcional, característico do planejamento urbano modernista, que divide a cidade em áreas com funções específicas (zonas industriais, residenciais, comerciais, etc.). Esse modelo foi amplamente difundido a partir da Carta de Atenas (1933), documento elaborado pelo arquiteto Le Corbusier que preconizava a separação das funções urbanas (habitar, trabalhar, recrear-se e circular). Diferencia-se da segregação espacial, que se refere à separação de grupos sociais no espaço urbano; da conurbação, que é a junção de duas ou mais cidades; da gentrificação, que é o processo de valorização imobiliária com expulsão da população de baixa renda; e da metropolização, que é a formação de áreas metropolitanas."
+    },
+    {
+      "materia": "Ciências Humanas",
+      "ano": 2023,
+      "numero": 3,
+      "pergunta": "TEXTO\n\n'A democracia é o regime político em que a soberania é exercida pelo povo. Mas o conceito de povo, assim como o modo pelo qual ele exerce a soberania, varia enormemente em diferentes épocas e lugares.'\n\nCOMPARATO, F. K. Sobre a legitimidade das Constituições. In: BONAVIDES, P.; LIMA, F. G. M. de; BEDÊ, F. S. (Coord.) Constituição e democracia. São Paulo: Malheiros, 2006.\n\nCom base no texto e nos conhecimentos sobre democracia, é correto afirmar que nas democracias contemporâneas:",
+      "alternativas": {
+        "A": "o sufrágio universal é considerado uma condição suficiente para a existência da democracia",
+        "B": "a soberania popular se exerce apenas pela escolha direta dos representantes políticos",
+        "C": "a participação política se restringe às elites intelectuais e econômicas",
+        "D": "o conceito de cidadania inclui direitos civis, políticos e sociais",
+        "E": "os mecanismos de democracia direta substituíram completamente a representação"
+      },
+      "resposta_correta": "D",
+      "explicacao": "Nas democracias contemporâneas, o conceito de cidadania expandiu-se para incluir três dimensões de direitos: civis (liberdades individuais), políticos (participação no poder político) e sociais (bem-estar econômico mínimo e segurança), conforme a clássica definição de T. H. Marshall. Essa concepção ampliada de cidadania é característica das democracias atuais, especialmente após a Segunda Guerra Mundial. O sufrágio universal, embora fundamental, não é condição suficiente para a democracia. A soberania popular pode ser exercida por diversos mecanismos além da eleição de representantes (como referendos e plebiscitos). A participação política é direito de todos os cidadãos, não apenas das elites. Os mecanismos de democracia direta complementam, mas não substituíram a representação política."
+    },
+    {
+      "materia": "Ciências Humanas",
+      "ano": 2023,
+      "numero": 4,
+      "pergunta": "TEXTO\n\n'A Revolução Industrial foi precedida por uma evolução agrícola que libertou mão de obra, criou um mercado para produtos não agrícolas e possibilitou a acumulação de capital para investimentos em manufaturas. A partir do século XVI, apressou-se a modernização da agricultura na Inglaterra, onde os campos abertos, cultivados por grande número de pequenos agricultores, foram gradualmente transformados em propriedades fechadas.'\n\nHUNT, E. K.; SHERMAN, H. J. História do pensamento econômico. Petrópolis: Vozes, 1987.\n\nO processo mencionado no texto é denominado:",
+      "alternativas": {
+        "A": "servidão coletiva",
+        "B": "cercamento dos campos",
+        "C": "reforma agrária",
+        "D": "coletivização agrícola",
+        "E": "arrendamento capitalista"
+      },
+      "resposta_correta": "B",
+      "explicacao": "O texto descreve o processo conhecido como 'cercamento dos campos' (enclosure movement), ocorrido principalmente na Inglaterra entre os séculos XVI e XVIII. Esse processo consistiu na transformação das terras comunais medievais, utilizadas coletivamente pelos camponeses, em propriedades privadas cercadas, voltadas principalmente para a criação de ovelhas (produção de lã para a indústria têxtil). Os cercamentos contribuíram para a consolidação do capitalismo no campo e para a formação de um proletariado urbano, pois muitos camponeses expulsos das terras comunais migraram para as cidades em busca de trabalho nas manufaturas e, posteriormente, nas fábricas. Este processo não deve ser confundido com reforma agrária (redistribuição de terras) ou coletivização agrícola (estatização de propriedades rurais)."
+    },
+    {
+      "materia": "Ciências Humanas",
+      "ano": 2023,
+      "numero": 5,
+      "pergunta": "TEXTO\n\n'A principal causa das revoltas de escravos no Brasil, ao contrário do que ocorreu em outros países, não foi a busca pela liberdade. Existiam diversos caminhos para se obter a alforria (...). O escravo preferia, em geral, trabalhar pela alforria dentro do quadro institucional a arriscar-se numa aventura revolucionária. O que provocava fugas e revoltas era o rompimento do acordo tácito, de parte a parte, sobre o que constituía um castigo justo ou injusto.'\n\nCARVALHO, J. M. Cidadania no Brasil: o longo caminho. Rio de Janeiro: Civilização Brasileira, 2018.\n\nDe acordo com a perspectiva apresentada no texto, na sociedade escravista brasileira:",
+      "alternativas": {
+        "A": "os escravizados não desenvolveram consciência sobre sua condição de explorados",
+        "B": "a violência física era aceita pelos escravizados como parte natural de sua condição",
+        "C": "a resistência à escravidão manifestava-se principalmente de forma organizada e coletiva",
+        "D": "existiam negociações e limites reconhecidos nas relações entre senhores e escravizados",
+        "E": "a legislação abolicionista garantia direitos efetivos aos escravizados desde o início do século XIX"
+      },
+      "resposta_correta": "D",
+      "explicacao": "O texto argumenta que na sociedade escravista brasileira existiam negociações e limites reconhecidos (um 'acordo tácito') nas relações entre senhores e escravizados. Os escravizados aceitavam sua condição e certos níveis de punição considerados 'justos', mas se rebelavam quando essas fronteiras eram ultrapassadas. Essa perspectiva historiográfica, associada a autores como E. P. Thompson e sua 'economia moral', enfatiza a agência dos escravizados e sua capacidade de negociação dentro do sistema escravista, sem negar sua brutalidade. O texto não sugere que os escravizados não tinham consciência de sua exploração, que aceitavam qualquer violência como natural, que resistiam principalmente de forma coletiva (destaca justamente estratégias individuais como busca da alforria) ou que a legislação abolicionista garantia direitos efetivos no início do século XIX."
+    }
+  ]
+}

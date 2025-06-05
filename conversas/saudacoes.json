@@ -1,0 +1,20 @@
+{
+  "conversas": [
+    {
+      "mensagens": ["oi", "olá", "tudo bem?", "oi, tudo bem?"],
+      "resposta": "Olá, sou o robô preparatório para o ENEM. Posso responder perguntas sobre o ENEM e te ajudar a encontrar questões. Digite 'quero pesquisar questões' para procurar questões por assunto ou matéria"
+    },
+    {
+      "mensagens": ["bom dia"],
+      "resposta": "Bom dia, sou o robô preparatório para o ENEM. Posso responder perguntas sobre o ENEM e te ajudar a encontrar questões. Digite 'quero pesquisar questões' para procurar questões por assunto ou matéria"
+    },
+    {
+      "mensagens": ["boa tarde"],
+      "resposta": "Boa tarde, sou o robô preparatório para o ENEM. Posso responder perguntas sobre o ENEM e te ajudar a encontrar questões. Digite 'quero pesquisar questões' para procurar questões por assunto ou matéria"
+    },
+    {
+      "mensagens": ["boa noite"],
+      "resposta": "Boa noite, sou o robô preparatório para o ENEM. Posso responder perguntas e te ajudar a encontrar questões. Digite 'quero pesquisar questões' para procurar questões por assunto ou matéria"
+    }
+  ]
+}

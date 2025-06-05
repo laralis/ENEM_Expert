@@ -1,0 +1,23 @@
+chatterbot
+chatterbot_corpus
+nltk # natural language toolkit
+
+flask
+
+#pip3 install -r requirements.txt
+
+#criar ambiente virtual :
+#python3 -m venv venv
+#ativar ambiente virtual:
+#source venv/bin/activate
+#instalar as dependecias :
+#pip install -r requirements.txt
+#rodar script:
+#python treinamento.py
+#desativar:
+#deactivate
+#Fluxo de Uso
+#Execute processar_questoes.py para processar as questões JSON e criar o banco de dados.
+#Execute treinamento.py para treinar o chatbot com conversas predefinidas.
+#Execute servico.py para iniciar o backend da aplicação.
+#Execute robo.py para interação via terminal ou chat.py para interface web.

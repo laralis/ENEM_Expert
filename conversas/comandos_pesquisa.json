@@ -1,0 +1,31 @@
+{
+  "conversas": [
+    {
+      "mensagens": [
+        "pesquisar questões",
+        "pesquisar questoes",
+        "quero questões",
+        "quero questoes",
+        "buscar questão",
+        "buscar questao",
+        "procurar exercício",
+        "procurar exercicio",
+        "mostrar questões",
+        "mostrar questoes",
+        "ver questões",
+        "ver questoes",
+        "preciso de questões",
+        "preciso de questoes",
+        "quero ver questões",
+        "quero ver questoes",
+        "me dê questões",
+        "me de questoes",
+        "mostre questões",
+        "mostre questoes",
+        "gostaria de ver questões",
+        "gostaria de ver questoes"
+      ],
+      "resposta": "Informe o assunto que deseja estudar"
+    }
+  ]
+}

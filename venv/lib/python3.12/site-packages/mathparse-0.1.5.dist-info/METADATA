@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: mathparse
+Version: 0.1.5
+Summary: mathparse is a library for solving mathematical equations contained in strings
+Author: Gunther Cox
+License-Expression: MIT
+Project-URL: Documentation, https://docs.chatterbot.us
+Project-URL: Repository, https://github.com/gunthercox/ChatterBot
+Project-URL: Changelog, https://github.com/gunthercox/ChatterBot/releases
+Keywords: mathparse,mathematics,math,nlp
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Programming Language :: Python
+Requires-Python: <=3.13,>=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mathparse<0.2,>=0.1
+Requires-Dist: python-dateutil<2.10,>=2.9
+Requires-Dist: sqlalchemy<2.1,>=2.0
+Requires-Dist: spacy<3.9,>=3.8
+Requires-Dist: tqdm
+Provides-Extra: test
+Requires-Dist: flake8; extra == "test"
+Requires-Dist: sphinx<9.0,>=8.2; extra == "test"
+Dynamic: license-file
+
+# mathparse
+
+The `mathparse` library is a Python module designed to evaluate mathematical equations contained in strings.
+
+Here are a few examples:
+
+```python
+from mathparse import mathparse
+
+mathparse.parse('50 * (85 / 100)')
+>>> 42.5
+
+mathparse.parse('one hundred times fifty four', mathparse.codes.ENG)
+>>> 5400
+
+mathparse.parse('(seven * nine) + 8 - (45 plus two)', language='ENG')
+>>> 24
+```
+
+## Installation
+
+```bash
+pip install mathparse
+```
+
+## Language support
+
+The language parameter must be set in order to evaluate an equation that uses word operators.
+The language code should be a valid `ISO 639-2`_ language code.
+
+## History
+
+See `release notes`_ for changes.
+
+.. _`ISO 639-2`: https://www.loc.gov/standards/iso639-2/php/code_list.php
+.. _`release notes`: https://github.com/gunthercox/ChatterBot/releases
