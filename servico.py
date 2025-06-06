@@ -1,4 +1,4 @@
-from flask import Flask, Response, request, jsonify
+from flask import Flask, request, jsonify
 from chatterbot import ChatBot
 import json
 import sqlite3

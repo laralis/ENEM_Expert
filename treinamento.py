@@ -2,7 +2,6 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer 
 import json
 import os
-import logging
 
 NOME_ROBO = "ENEMExpert"
 BD_ROBO_CHATTERBOT = "./chat.sqlite3"

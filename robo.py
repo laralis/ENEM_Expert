@@ -1,8 +1,5 @@
 import requests
 import json
-import os
-import sys
-from time import sleep
 
 URL_BACKEND = "http://localhost:5000"
 NOME_ROBO = "ENEMExpert"

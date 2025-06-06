@@ -1,6 +1,4 @@
+
 __pycache__
-chat.sqlite3
-questoes.sqlite3
-venv
-chat.sqlite3-shm
-chat.sqlite3-wal
+*.sqlite3
+venv/
