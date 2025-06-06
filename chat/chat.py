@@ -1,4 +1,3 @@
-# app_frontend_enem.py
 from flask import Flask, render_template, jsonify, request, session
 import requests
 import json

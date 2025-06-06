@@ -17,7 +17,7 @@ from processar_questoes import (
 NOME_ROBO = "ENEMExpert"
 BD_ROBO_CHATTERBOT = "./chat.sqlite3"
 CONFIANCA_MINIMA_RESPOSTA = 0.65
-FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Qual matéria você gostaria de pesquisar questões (caso queira sair do modo pesquisa digite 'cancelar pesquisa'?"
+FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Qual matéria você gostaria de pesquisar questões (caso queira sair do modo pesquisa digite 'cancelar pesquisa')?"
 
 app = Flask(NOME_ROBO)
 
