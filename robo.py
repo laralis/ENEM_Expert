@@ -10,8 +10,7 @@ NOME_ROBO = "ENEMExpert"
 ESTADO_NORMAL = 0
 ESTADO_PESQUISA = 1
 
-FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Ok, qual matéria ou assunto você deseja pesquisar? Você pode especificar uma matéria como 'Matemática' ou um assunto específico como 'matrizes', 'revolução industrial' ou 'biologia celular'."
-
+FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Qual matéria você gostaria de pesquisar questões (caso queira sair do modo pesquisa digite 'cancelar pesquisa'?"
 
 def enviar_pergunta(pergunta):
     try:
@@ -27,30 +26,22 @@ def enviar_pergunta(pergunta):
         return {"resposta": "Não foi possível contactar o serviço de resposta.", "confianca": 0, "modo_pesquisa": False}
 
 def pesquisar_questoes(consulta, limite=10):
-    """Pesquisa questões no backend com processamento aprimorado da consulta"""
     try:
-        # Verifica casos específicos para matérias compostas
         consulta_lower = consulta.lower()
         if "ciências da natureza" in consulta_lower or "ciencias da natureza" in consulta_lower:
             materia = "Ciências da Natureza"
             termos = consulta_lower.replace("ciências da natureza", "").replace("ciencias da natureza", "").strip()
-            print(f"DEBUG: Detectado termo composto: matéria='{materia}', termos='{termos}'")
         elif "ciências humanas" in consulta_lower or "ciencias humanas" in consulta_lower:
             materia = "Ciências Humanas"
             termos = consulta_lower.replace("ciências humanas", "").replace("ciencias humanas", "").strip()
-            print(f"DEBUG: Detectado termo composto: matéria='{materia}', termos='{termos}'")
-        # Verifica formato "matéria, termos"
         elif "," in consulta:
             partes = consulta.split(",", 1)
             materia = partes[0].strip()
             termos = partes[1].strip() if len(partes) > 1 else ""
-            print(f"DEBUG: Formato com vírgula: matéria='{materia}', termos='{termos}'")
         else:
-            # Tenta identificar se o primeiro termo é uma matéria conhecida
             palavras = consulta.split()
             primeira_palavra = palavras[0].lower() if palavras else ""
             
-            # Lista expandida de possíveis matérias
             materias_comuns = [
                 "matemática", "matematica", "mat", "português", "portugues", "port",
                 "história", "historia", "hist", "geografia", "geo", "biologia", "bio",
@@ -59,18 +50,13 @@ def pesquisar_questoes(consulta, limite=10):
                 "inglês", "ingles"
             ]
             
-            # Verifica se a primeira palavra é uma matéria
             if primeira_palavra in materias_comuns:
                 materia = primeira_palavra
                 termos = " ".join(palavras[1:])
-                print(f"DEBUG: Primeira palavra é matéria: matéria='{materia}', termos='{termos}'")
             else:
-                # Se não conseguimos identificar uma matéria, usamos toda a consulta como termos
                 materia = ""
                 termos = consulta
-                print(f"DEBUG: Sem matéria identificada: termos='{termos}'")
         
-        # Prepara o payload para o backend
         payload = {
             "consulta": consulta,
             "materia": materia,
@@ -78,7 +64,6 @@ def pesquisar_questoes(consulta, limite=10):
             "limite": limite
         }
         
-        print(f"DEBUG: Enviando payload para pesquisa: {payload}")
         response = requests.post(f"{URL_BACKEND}/pesquisar_questoes", json=payload, timeout=10)
         
         if response.status_code == 200:
@@ -127,14 +112,12 @@ def executar_chat_console():
                 indice_questao_atual = -1
                 continue
             
-            # Modo normal de conversa
             if estado_atual == ESTADO_NORMAL:
                 resposta_obj = enviar_pergunta(pergunta_usuario)
                 
                 if resposta_obj.get("modo_pesquisa"):
                     estado_atual = ESTADO_PESQUISA
                     print(f"🤖 {NOME_ROBO}: {resposta_obj.get('resposta')}")
-                # Só mostrar respostas com confiança razoável
                 elif resposta_obj.get('confianca', 0) >= 0.6:
                     print(f"🤖 {NOME_ROBO}: {resposta_obj.get('resposta')}")
                     if 'confianca' in resposta_obj:
@@ -142,18 +125,15 @@ def executar_chat_console():
                 else:
                     print(f"🤖 {NOME_ROBO}: Desculpe, não entendi bem sua pergunta. Você pode reformular ou perguntar sobre o ENEM, ou digitar 'pesquisar questões' para buscar questões específicas.")
             
-            # Modo de pesquisa de questões
             elif estado_atual == ESTADO_PESQUISA:
                 pergunta_lower = pergunta_usuario.lower()
                 
-                # Lista expandida de comandos para voltar ao modo normal
                 comandos_voltar = [
                     'voltar', 'sair da pesquisa', 'cancelar pesquisa', 'modo normal', 
                     'sair do modo pesquisa', 'conversa normal', 'voltar ao chat', 
                     'quero conversar', 'conversar', 'parar pesquisa', 'encerrar pesquisa'
                 ]
                 
-                # Voltar ao modo normal
                 if any(cmd == pergunta_lower for cmd in comandos_voltar):
                     print(f"🤖 {NOME_ROBO}: Voltando ao modo normal de conversa. Como posso ajudar?")
                     estado_atual = ESTADO_NORMAL
@@ -161,7 +141,6 @@ def executar_chat_console():
                     indice_questao_atual = -1
                     continue
                 
-                # Navegação entre questões já carregadas
                 if pergunta_lower in ['resposta', 'ver resposta', 'mostrar resposta', 'explicação', 'gabarito', 'solucao', 'solução'] and questoes_atuais:
                     if 0 <= indice_questao_atual < len(questoes_atuais):
                         questao = questoes_atuais[indice_questao_atual]
@@ -189,19 +168,14 @@ def executar_chat_console():
                         print(f"🤖 {NOME_ROBO}: Não há questões anteriores disponíveis.")
                     continue
                 
-                # NOVA PESQUISA DE QUESTÕES
                 print(f"🤖 {NOME_ROBO}: Pesquisando questões sobre '{pergunta_usuario}'...")
                 
-                # Envia a consulta completa para processamento no backend com análise melhorada
                 resultado = pesquisar_questoes(pergunta_usuario)
                 
                 questoes_atuais = resultado.get("questoes", [])
                 total_encontrado = len(questoes_atuais)
                 materia_encontrada = resultado.get("materia", "")
                 termos_encontrados = resultado.get("termos", "")
-                
-                print(f"DEBUG: Recebido do backend: {total_encontrado} questões")
-                print(f"DEBUG: Matéria: '{materia_encontrada}', Termos: '{termos_encontrados}'")
                 
                 if total_encontrado > 0:
                     resposta_formatada = f"Encontrei {total_encontrado} questões"

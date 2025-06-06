@@ -16,21 +16,13 @@ BD_ENEM = f"{CAMINHO_BD}/questoes.sqlite3"
 PALAVRAS_CHAVE_POR_QUESTAO = 5  
 
 CLASSES_GRAMATICAIS_INDESEJADAS = [
-    "adv",     
-    "v-inf",    
-    "v-fin",   
-    "v-pcp",  
-    "v-ger",   
-    "num",     
-    "adj",     
-    "pron-pers",
-    "pron-det",
-    "pron-indp",
-    "prp",     
-    "intj",    
-    "conj-s",  
-    "conj-c",  
-    "art"       
+  "adv",
+  "v-inf",
+  "v-fin",
+  "v-pcp",
+  "v-ger",
+  "num",
+  "adj"      
 ]
 
 MATERIAS_ENEM = [
@@ -41,7 +33,7 @@ MATERIAS_ENEM = [
 ]
 
 
-def inicializar_nltk():
+def inicializar():
     palavras_de_parada = set(corpus.stopwords.words("portuguese"))
     floresta.tagged_words()
 
@@ -52,18 +44,30 @@ def inicializar_nltk():
 
 def ler_questoes_do_json(caminho_arquivo_json):
     sucesso, dados_questoes = False, None
-    
-    with open(caminho_arquivo_json, "r", encoding="utf-8") as arquivo:
-        dados_questoes = json.load(arquivo)
-    sucesso = True
+
+    try:
+      with open(caminho_arquivo_json, "r", encoding="utf-8") as arquivo:
+          dados_questoes = json.load(arquivo)
+          arquivo.close()
+      sucesso = True
+    except Exception as x:
+        print(f"ERRO: Arquivo JSON não encontrado:{x}")
     return sucesso, dados_questoes
 
 
 def eliminar_palavras_de_parada(tokens, palavras_de_parada):
-    return [token for token in tokens if token not in palavras_de_parada]
+  tokens_filtrados = []
+  for token in tokens:
+    if token not in palavras_de_parada:
+      tokens_filtrados.append(token)
+  return tokens_filtrados
 
 def eliminar_pontuacoes(tokens):
-    return [token for token in tokens if token not in punctuation]
+  tokens_filtrados = []
+  for token in tokens:
+    if token not in punctuation:
+      tokens_filtrados.append(token)
+  return tokens_filtrados
 
 def eliminar_classes_gramaticais(tokens, classificacoes_palavras):
     tokens_filtrados = []
@@ -175,16 +179,13 @@ def get_questoes_do_bd(materia_filtro=None, como_linhas=False):
 
 
 def identificar_materia(texto):
-    """Identifica a matéria em um texto de pesquisa."""
     if not texto:
         return None
         
     texto_lower = texto.lower()
     
-    # Verificar correspondências exatas primeiro (para priorizar termos completos)
     for materia in MATERIAS_ENEM:
         if materia == texto_lower or f"{materia} " in texto_lower or f" {materia}" in texto_lower:
-            # Normalizar para os grandes grupos do ENEM
             if materia in ["matemática", "matematica", "matemática e suas tecnologias"]:
                 return "Matemática"
             elif materia in ["português", "portugues", "inglês", "ingles", "espanhol", "artes", "educação física", "educacao fisica", "linguagens", "linguagens e suas tecnologias"]:
@@ -198,16 +199,14 @@ def identificar_materia(texto):
     return None
 
 def extrair_termos_pesquisa(texto, materia_identificada):
-    """Extrai termos de pesquisa do texto, mantendo palavras significativas."""
-    # Se não identificou matéria, usa todo o texto como termos
+   
     if not materia_identificada:
         texto_processado = texto
     else:
-        # Remove referências à matéria
+       
         materia_regex = '|'.join(re.escape(mat) for mat in MATERIAS_ENEM)
         texto_processado = re.sub(materia_regex, '', texto.lower(), flags=re.IGNORECASE)
     
-    # Lista ampliada de palavras a serem removidas (stopwords específicas da busca)
     palavras_para_remover = [
         'questão', 'questao', 'questões', 'questoes', 
         'sobre', 'tema', 'tópico', 'topico', 'enem', 
@@ -216,23 +215,19 @@ def extrair_termos_pesquisa(texto, materia_identificada):
         'pesquisar', 'buscar', 'procurar', 'encontrar'
     ]
     
-    # Substitui palavras para remover por espaço
     for palavra in palavras_para_remover:
-        padrao = r'\b' + re.escape(palavra) + r'\b'  # Encontra palavra completa
+        padrao = r'\b' + re.escape(palavra) + r'\b' 
         texto_processado = re.sub(padrao, ' ', texto_processado, flags=re.IGNORECASE)
     
-    # Remove pontuação e normaliza espaços
     texto_processado = re.sub(r'[^\w\s]', ' ', texto_processado)
     texto_processado = re.sub(r'\s+', ' ', texto_processado).strip()
     
     return texto_processado
 
 def formatar_questao(questao):
-    """Formata uma questão para apresentação ao usuário."""
     texto = f"\n📝 Questão {questao['numero_questao']} de {questao['materia']} ({questao['ano']})\n\n"
     texto += f"{questao['pergunta']}\n\n"
     
-    # Ordenar alternativas alfabeticamente
     alternativas = sorted(questao['alternativas'].items())
     for letra, conteudo in alternativas:
         texto += f"{letra}) {conteudo}\n"
@@ -240,14 +235,12 @@ def formatar_questao(questao):
     return texto
 
 def formatar_resposta(questao):
-    """Formata a resposta de uma questão para apresentação ao usuário."""
     texto = f"\n✅ A resposta correta é a alternativa {questao['resposta_correta']}.\n\n"
     texto += f"📚 Explicação: {questao['explicacao']}\n"
     
     return texto
 
 def pesquisar_questoes(materia=None, termos=None, limite=10):
-    """Pesquisa questões no banco de dados por matéria e/ou termos."""
     try:
         conexao = sqlite3.connect(BD_ENEM)
         conexao.row_factory = sqlite3.Row
@@ -259,63 +252,46 @@ def pesquisar_questoes(materia=None, termos=None, limite=10):
         LEFT JOIN chaves_enem c ON q.id = c.id_questao
         WHERE 1=1
         """
-        
+
         params = []
         
-        print(f"DEBUG: Pesquisando matéria='{materia}', termos='{termos}', limite={limite}")
-        
-        # Normalizar nome da matéria de forma mais flexível
         if materia and materia.strip():
             materia_normalizada = normalizar_materia(materia.strip())
             if materia_normalizada:
-                # Usar comparação direta em vez de LIKE para matérias padronizadas
                 if materia_normalizada in ["Matemática", "Linguagens", "Ciências Humanas", "Ciências da Natureza"]:
                     query += " AND q.materia = ?"
                     params.append(materia_normalizada)
                 else:
-                    # Para outras matérias, manter a busca flexível
                     query += " AND q.materia LIKE ?"
                     params.append(f"%{materia_normalizada}%")
-                print(f"DEBUG: Filtro de matéria adicionado: '{materia_normalizada}'")
         
-        # Busca por termos mais flexível - usar OR entre os termos em vez de AND
         if termos and termos.strip():
             termos_lista = termos.split()
             if termos_lista:
-                # Abrir parênteses para o grupo OR de termos
                 query += " AND ("
                 termo_conditions = []
                 
                 for termo in termos_lista:
                     termo = termo.strip()
-                    if termo and len(termo) > 2:  # Ignora termos muito curtos
-                        # Criamos uma condição OR para este termo
+                    if termo and len(termo) > 2:  
                         termo_condition = "(q.pergunta LIKE ? OR q.explicacao LIKE ? OR c.chave1 LIKE ? OR c.chave2 LIKE ? OR c.chave3 LIKE ? OR c.chave4 LIKE ? OR c.chave5 LIKE ?)"
                         termo_conditions.append(termo_condition)
                         termo_busca = f"%{termo}%"
-                        params.extend([termo_busca] * 7)  # 7 places to search for each term
-                        print(f"DEBUG: Termo de busca adicionado: '{termo}'")
+                        params.extend([termo_busca] * 7)  
                 
                 if termo_conditions:
-                    # Junta as condições com OR
                     query += " OR ".join(termo_conditions)
                 else:
-                    # Se não houver termos válidos, remove o AND ( que adicionamos
                     query = query[:-5]
                 
-                # Fechar parênteses se adicionamos condições
                 if termo_conditions:
                     query += ")"
         
-        # Adicionar debug para a query final
         query += " ORDER BY q.materia, q.ano DESC LIMIT ?"
         params.append(limite)
-        print(f"DEBUG: Query SQL final: {query}")
-        print(f"DEBUG: Parâmetros: {params}")
         
         cursor.execute(query, params)
         resultados = cursor.fetchall()
-        print(f"DEBUG: Encontradas {len(resultados)} questões")
         
         questoes = []
         for row in resultados:
@@ -332,13 +308,11 @@ def pesquisar_questoes(materia=None, termos=None, limite=10):
         return []
 
 def normalizar_materia(materia_texto):
-    """Normaliza o nome da matéria para corresponder ao formato no banco de dados."""
     if not materia_texto:
         return None
         
     materia_lower = materia_texto.lower()
     
-    # Mapeamento mais detalhado e flexível
     mapa_materias = {
         "Matemática": ["matematica", "matemática", "mat", "matemat", "exatas", "algebra", "geometria", 
                      "matematicas", "trigonometria", "probabilidade", "estatistica"],
@@ -357,44 +331,32 @@ def normalizar_materia(materia_texto):
                              "biológico", "biologico"]
     }
     
-    # Primeiro, verificar correspondências para termos compostos específicos
     if "ciencias da natureza" in materia_lower or "ciências da natureza" in materia_lower:
         return "Ciências da Natureza"
     
     if "ciencias humanas" in materia_lower or "ciências humanas" in materia_lower:
         return "Ciências Humanas"
     
-    # Depois, verificar por correspondências gerais no mapa
     for materia_padrao, variantes in mapa_materias.items():
         for variante in variantes:
             if variante in materia_lower:
-                print(f"DEBUG: Matéria '{materia_lower}' normalizada para '{materia_padrao}'")
                 return materia_padrao
     
-    # Se chegou aqui, não encontrou correspondência
-    print(f"DEBUG: Não foi possível normalizar a matéria '{materia_lower}'")
     return materia_texto
 
 def analisar_pergunta_usuario(pergunta_usuario):
-    """Analisa a pergunta do usuário, identificando matéria e termos de pesquisa."""
     if not pergunta_usuario:
         return None, ""
     
-    # Primeiro, tenta identificar a matéria na pergunta
     materia = identificar_materia(pergunta_usuario)
     
-    # Em seguida, extrai os termos de pesquisa relevantes
     termos = extrair_termos_pesquisa(pergunta_usuario, materia)
-    
-    print(f"DEBUG: Análise da pergunta - matéria='{materia}', termos='{termos}'")
     
     return materia, termos
 
-# ==================== FUNÇÃO PRINCIPAL ====================
-
 if __name__ == "__main__":
     
-    palavras_de_parada_globais, classificacoes_globais = inicializar_nltk()
+    palavras_de_parada_globais, classificacoes_globais = inicializar()
 
     sucesso_leitura, dados_json = ler_questoes_do_json(ENEM_QUESTOES_JSON)
 
@@ -429,25 +391,4 @@ if __name__ == "__main__":
     conexao_db.close()
     print("Todas as questões foram processadas e gravadas no banco de dados.")
 
-    # Exemplos de busca
-    print("\n--- Exemplo de Busca: Questões de Matemática ---")
-    questoes_matematica = get_questoes_do_bd(materia_filtro="Matemática", como_linhas=True)
-    if questoes_matematica:
-        for q in questoes_matematica:
-            print(f"ID: {q['id']}, Matéria: {q['materia']}, Ano: {q['ano']}, Nº: {q['numero_questao']}")
-            print(f"  Pergunta: {q['pergunta'][:100]}...") # Primeiros 100 caracteres
-            print("-" * 20)
-    else:
-        print("Nenhuma questão de Matemática encontrada.")
-
-    # Exemplo de pesquisa de questões
-    print("\n--- Exemplo de Pesquisa por Termo: 'função' ---")
-    materia, termos = "Matemática", "função"
-    questoes_encontradas = pesquisar_questoes(materia, termos)
-    if questoes_encontradas:
-        print(f"Encontradas {len(questoes_encontradas)} questões sobre '{termos}' em {materia}")
-        questao_exemplo = questoes_encontradas[0]
-        print(formatar_questao(questao_exemplo))
-        print(formatar_resposta(questao_exemplo))
-    else:
-        print(f"Nenhuma questão sobre '{termos}' em {materia} encontrada.")
+    

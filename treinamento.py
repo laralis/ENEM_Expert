@@ -6,8 +6,6 @@ import logging
 
 NOME_ROBO = "ENEMExpert"
 BD_ROBO_CHATTERBOT = "./chat.sqlite3"
-FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Qual matéria você gostaria de pesquisar questões (caso queira sair do modo pesquisa digite 'cancelar pesquisa'?"
-
 ARQUIVOS_JSON_CONVERSAS = [
     "./conversas/saudacoes.json",
     "./conversas/informacoes_basicas.json",
@@ -29,24 +27,7 @@ def inicializar_robo():
         robo_instance = ChatBot(
             NOME_ROBO,
             storage_adapter='chatterbot.storage.SQLStorageAdapter',
-            database_uri=db_uri,
-            logic_adapters=[
-                {
-                    'import_path': 'chatterbot.logic.BestMatch',
-                    'default_response': 'Desculpe, não tenho uma resposta precisa para isso no momento. Que tal tentar outros termos ou uma pergunta diferente sobre o ENEM?',
-                    'maximum_similarity_threshold': 0.90
-                },
-                {
-                    'import_path': 'chatterbot.logic.SpecificResponseAdapter',
-                    'input_text': 'quero pesquisar questões do enem',
-                    'output_text': FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA
-                },
-                {
-                    'import_path': 'chatterbot.logic.SpecificResponseAdapter',
-                    'input_text': 'pesquisar questões',
-                    'output_text': FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA
-                },
-            ],
+            database_uri=db_uri
         )
         print(f"Robô '{NOME_ROBO}' instanciado com sucesso.")
         return True, robo_instance

@@ -141,18 +141,6 @@ def enviar_pergunta():
             "modo_pesquisa": False
         })
 
-# @app.route("/obter_questao/<int:questao_id>")
-# def obter_questao(questao_id):
-#     try:
-#         response = requests.get(f"{URL_BACKEND}/questao/{questao_id}", timeout=10)
-#         if response.status_code == 200:
-#             return jsonify(response.json())
-#         else:
-#             return jsonify({"erro": "Questão não encontrada"}), 404
-#     except Exception as e:
-#         print(f"Erro ao obter detalhes da questão: {e}")
-#         return jsonify({"erro": "Erro de comunicação"}), 500
-
 if __name__ == "__main__":
     print(f"=== INICIANDO INTERFACE WEB DO ENEM HELPER ===")
     print(f"Certifique-se de que o backend está em execução em {URL_BACKEND}")
