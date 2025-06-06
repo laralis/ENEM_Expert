@@ -26,6 +26,7 @@ source venv/bin/activate
 ### 2. Instalação das Dependências
 
 ```bash
+
 pip install -r requirements.txt
 
 python inicializar_nltk.py
@@ -49,6 +50,9 @@ Este script:
 
 ```bash
 python treinamento.py
+
+#se der erro rode o comando abaixo:
+python -m spacy download en_core_web_sm
 ```
 
 Este script:
