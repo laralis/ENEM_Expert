@@ -26,10 +26,10 @@ CLASSES_GRAMATICAIS_INDESEJADAS = [
 ]
 
 MATERIAS_ENEM = [
-    "matemática", "matematica", "matemática e suas tecnologias",
-    "linguagens", "linguagens e suas tecnologias", "português", "portugues", "inglês", "ingles", "espanhol", "artes", "educação física", "educacao fisica",
-    "ciências humanas", "ciencias humanas", "história", "historia", "geografia", "filosofia", "sociologia",
-    "ciências da natureza", "ciencias da natureza", "física", "fisica", "química", "quimica", "biologia"
+  "matemática", "matematica", "português", "portugues",
+  "história", "historia","geografia",  "biologia",
+  "física", "fisica",  "química", "quimica", "linguagens", 
+  "humanas", "natureza", "filosofia"
 ]
 
 
@@ -207,18 +207,6 @@ def extrair_termos_pesquisa(texto, materia_identificada):
         materia_regex = '|'.join(re.escape(mat) for mat in MATERIAS_ENEM)
         texto_processado = re.sub(materia_regex, '', texto.lower(), flags=re.IGNORECASE)
     
-    palavras_para_remover = [
-        'questão', 'questao', 'questões', 'questoes', 
-        'sobre', 'tema', 'tópico', 'topico', 'enem', 
-        'por favor', 'quero', 'preciso', 'gostaria', 
-        'me', 'dê', 'de', 'uma', 'do', 'da', 'no', 'na',
-        'pesquisar', 'buscar', 'procurar', 'encontrar'
-    ]
-    
-    for palavra in palavras_para_remover:
-        padrao = r'\b' + re.escape(palavra) + r'\b' 
-        texto_processado = re.sub(padrao, ' ', texto_processado, flags=re.IGNORECASE)
-    
     texto_processado = re.sub(r'[^\w\s]', ' ', texto_processado)
     texto_processado = re.sub(r'\s+', ' ', texto_processado).strip()
     
@@ -314,21 +302,19 @@ def normalizar_materia(materia_texto):
     materia_lower = materia_texto.lower()
     
     mapa_materias = {
-        "Matemática": ["matematica", "matemática", "mat", "matemat", "exatas", "algebra", "geometria", 
-                     "matematicas", "trigonometria", "probabilidade", "estatistica"],
+        "Matemática": ["matematica", "matemática", "exatas", "algebra", "geometria", 
+                      "trigonometria", "probabilidade", "estatistica"],
         
-        "Linguagens": ["linguagens", "portugues", "português", "port", "lingua", "língua", "linguas", "línguas", 
-                     "redação", "redacao", "texto", "inglês", "ingles", "espanhol", "literatura", 
+        "Linguagens": ["linguagens", "portugues", "português", "lingua", "língua", "linguas", "línguas", "literatura", 
                      "gramática", "gramatica", "interpretação", "interpretacao"],
         
-        "Ciências Humanas": ["humanas", "historia", "história", "geo", "geografia", "socio", "sociologia", 
-                           "filo", "filosofia", "politica", "política", "sociologia", "economia",
+        "Ciências Humanas": ["humanas", "historia", "história", "geografia", "sociologia", 
+                          "filosofia", "politica", "política", "sociologia", "economia",
                            "filosofica", "histórica", "geografica", "ciencias humanas", "ciências humanas"],
         
-        "Ciências da Natureza": ["natureza", "física", "fisica", "química", "quimica", "bio", "biologia", 
-                             "ciencia", "ciência", "ciencias", "ciências", "natural", "natureza", 
-                             "ciencias da natureza", "ciências da natureza", "químico", "quimico", "físico", "fisico",
-                             "biológico", "biologico"]
+        "Ciências da Natureza": ["natureza", "física", "fisica", "química", "quimica", "biologia", 
+                             "ciencia", "ciência", "ciencias", "ciências",
+                             "ciencias da natureza", "ciências da natureza"]
     }
     
     if "ciencias da natureza" in materia_lower or "ciências da natureza" in materia_lower:

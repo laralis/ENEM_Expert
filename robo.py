@@ -7,7 +7,9 @@ NOME_ROBO = "ENEMExpert"
 ESTADO_NORMAL = 0
 ESTADO_PESQUISA = 1
 
-FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Qual matéria você gostaria de pesquisar questões (caso queira sair do modo pesquisa digite 'cancelar pesquisa'?"
+FRASE_RESPOSTA_ATIVAR_MODO_PESQUISA = "Qual matéria você gostaria de pesquisar questões (caso queira sair do modo pesquisa digite 'cancelar pesquisa')?"
+
+from processar_questoes import MATERIAS_ENEM
 
 def enviar_pergunta(pergunta):
     try:
@@ -37,17 +39,9 @@ def pesquisar_questoes(consulta, limite=10):
             termos = partes[1].strip() if len(partes) > 1 else ""
         else:
             palavras = consulta.split()
-            primeira_palavra = palavras[0].lower() if palavras else ""
+            primeira_palavra = palavras[0].lower() if palavras else ""         
             
-            materias_comuns = [
-                "matemática", "matematica", "mat", "português", "portugues", "port",
-                "história", "historia", "hist", "geografia", "geo", "biologia", "bio",
-                "física", "fisica", "fis", "química", "quimica", "quim", "linguagens", 
-                "humanas", "natureza", "filosofia", "filo", "sociologia", "socio",
-                "inglês", "ingles"
-            ]
-            
-            if primeira_palavra in materias_comuns:
+            if primeira_palavra in MATERIAS_ENEM:
                 materia = primeira_palavra
                 termos = " ".join(palavras[1:])
             else:

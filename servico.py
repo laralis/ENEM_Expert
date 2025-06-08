@@ -11,7 +11,8 @@ from processar_questoes import (
     formatar_resposta,
     extrair_termos_pesquisa,
     normalizar_materia,
-    BD_ENEM
+    BD_ENEM,
+    MATERIAS_ENEM
 )
 
 NOME_ROBO = "ENEMExpert"
@@ -99,14 +100,8 @@ def responder_pergunta():
                 "modo_pesquisa": True
             })
         
-        
-        materias_diretas = ["matemática", "matematica", "linguagens", "português", "portugues", 
-                         "ciências humanas", "ciencias humanas", "história", "historia", 
-                         "geografia", "filosofia", "sociologia", "ciências da natureza", 
-                         "ciencias da natureza", "física", "fisica", "química", "quimica", "biologia"]
-        
         primeiro_termo = pergunta.lower().split()[0] if pergunta.strip() else ""
-        if primeiro_termo in materias_diretas:
+        if primeiro_termo in MATERIAS_ENEM:
             materia, termos = analisar_pergunta_usuario(pergunta)
             if materia:  
                 return jsonify({
